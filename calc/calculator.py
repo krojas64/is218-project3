@@ -4,6 +4,7 @@
 from calc.operations.addition import Addition
 from calc.operations.subtraction import Subtraction
 from calc.operations.multiplication import Multiplication
+from calc.operations.division import Division
 
 class Calculator:
     """ Calculator func """
@@ -28,6 +29,7 @@ class Calculator:
 
     @staticmethod
     def add_numbers(value_a, value_b):
+        """ Add numbers and get result """
         addition = Addition(value_a, value_b)
         Calculator.history.append(addition)
         return addition.getResult
@@ -39,6 +41,7 @@ class Calculator:
 
     @staticmethod
     def subtract_numbers(value_a, value_b):
+        """ Subtract numbers and get result """
         subtraction = Subtraction(value_a, value_b)
         Calculator.history.append(subtraction)
         return subtraction.getResult
@@ -61,3 +64,10 @@ class Calculator:
             raise ZeroDivisionError("Cannot divide by zero")
         self.result = self.result / value_d
         return self.result
+
+    @staticmethod
+    def divide_numbers(value_a, value_b):
+        """ Divide numbers and get result """
+        division = Division(value_a, value_b)
+        Calculator.history.append(division)
+        return division.getResult
