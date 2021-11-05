@@ -63,6 +63,8 @@ def test_clear_history():
     """ Test the clear history function """
     Calculator.add_numbers(1,2)
     Calculator.subtract_numbers(5,1)
+    Calculator.multiply_numbers(3,5)
+    Calculator.divide_numbers(20,4)
     Calculator.clear_history()
     clear_test = Calculator.get_history_length()
     assert clear_test == 0
