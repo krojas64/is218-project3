@@ -1,4 +1,4 @@
 from setuptools import setup, find_packages
-from calculator.main import Calculator
+from calc.calculator import Calculator
 
-setup(name="calculator", packages=find_packages())
+setup(name="calc", packages=find_packages())

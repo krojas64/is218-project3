@@ -1,6 +1,8 @@
-""" content of calculator.py#"""
+""" content of calc.py#"""
 import pytest
-from calculator.main import Calculator
+from calc.calculator import Calculator
+
+#import Addition in separate addition test file
 
 def test_calc_add():
     """ Test the addition function """
@@ -14,12 +16,14 @@ def test_calc_subtract():
     calc.subtract_number(1)
     assert calc.result == 5
 
-# Change result in main.py to properly test multiplication
+# Change result in calculator.py to properly test multiplication
 def test_calc_multiply():
     """ Test the multiplication function """
     calc = Calculator()
     calc.multiply_number(4)
     assert calc.result == 24
+
+    #assert Calculator.multiply_numbers
 
 def test_calc_divide():
     """ Test the division function """
@@ -32,3 +36,13 @@ def test_calc_divide_zero():
     calc = Calculator()
     with pytest.raises(ZeroDivisionError):
         calc.divide_number(0)
+
+def test_calculator_history_static_property():
+    """ Testing static addition """
+    Calculator.add_numbers(1,2)
+    assert len(Calculator.history) == 1
+
+def test_calculator_history_getAdditionCalculation():
+    """ Testing static history """
+    calculation = Calculator.history(0)
+    assert calculation.getResult() == 3
