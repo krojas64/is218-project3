@@ -1,7 +1,9 @@
 """ Multiplication Class """
-from calculation import Calculation
+from calc.operations.calculation import Calculation
 
-class Multiplication(calculation):
+class Multiplication(Calculation):
+    """ Multiplication function """
 
-    def getResult(self):
+    def get_result(self):
+        """ Get result """
         return self.value_a * self.value_b

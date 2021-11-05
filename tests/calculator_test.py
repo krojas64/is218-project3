@@ -42,7 +42,27 @@ def test_calculator_history_static_property():
     Calculator.add_numbers(1,2)
     assert len(Calculator.history) == 1
 
-def test_calculator_history_getAdditionCalculation():
+def test_calculator_history_get_addition_calculation():
     """ Testing static history """
-    calculation = Calculator.history(0)
-    assert calculation.getResult() == 3
+    calculation = Calculator.history[0]
+    assert calculation.get_result() == 3
+
+def test_calculator_history_length():
+    """ Get the amount of items in the history """
+    history_count = Calculator.get_history_length()
+    assert history_count == 1
+
+def test_remove_item_history():
+    """ Removes a value from history """
+    calculation = Calculator.history[0]
+    Calculator.remove_item_history(calculation)
+    new_history_count = Calculator.get_history_length()
+    assert new_history_count == 0
+
+def test_clear_history():
+    """ Test the clear history function """
+    Calculator.add_numbers(1,2)
+    Calculator.subtract_numbers(5,1)
+    Calculator.clear_history()
+    clear_test = Calculator.get_history_length()
+    assert clear_test == 0

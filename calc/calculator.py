@@ -7,7 +7,7 @@ from calc.operations.multiplication import Multiplication
 from calc.operations.division import Division
 
 class Calculator:
-    """ Calculator func """
+    """ Calculator function """
     history = []
 
     @staticmethod
@@ -17,7 +17,13 @@ class Calculator:
         return True
 
     @staticmethod
+    def get_history_length():
+        """ Get the amount of items in history """
+        return len(Calculator.history)
+
+    @staticmethod
     def remove_item_history(value_a):
+        """ Removes specific value from history """
         Calculator.history.remove(value_a)
         return True
 
@@ -32,7 +38,7 @@ class Calculator:
         """ Add numbers and get result """
         addition = Addition(value_a, value_b)
         Calculator.history.append(addition)
-        return addition.getResult
+        return addition.get_result
 
     def subtract_number(self, value_b):
         """ Subtract value_b from the result """
@@ -44,19 +50,19 @@ class Calculator:
         """ Subtract numbers and get result """
         subtraction = Subtraction(value_a, value_b)
         Calculator.history.append(subtraction)
-        return subtraction.getResult
+        return subtraction.get_result
 
     def multiply_number(self, value_c):
         """ Multiply value_c with the result """
         self.result = self.result * value_c
         return self.result
 
-    # Figure out what to add to make this work
     @staticmethod
     def multiply_numbers(value_a, value_b):
-        """ multiply numbers and store result """
-        Calculator.add_calculation_to_history(Multiplication.create(value_a, value_b))
-        return Calculator.get_result_of_last_calculation_added_to_history
+        """ Multiply numbers and get result """
+        multiplication = Multiplication(value_a, value_b)
+        Calculator.history.append(multiplication)
+        return multiplication.get_result
 
     def divide_number(self, value_d):
         """ Divide the result by value_d """
@@ -70,4 +76,4 @@ class Calculator:
         """ Divide numbers and get result """
         division = Division(value_a, value_b)
         Calculator.history.append(division)
-        return division.getResult
+        return division.get_result

@@ -1,7 +1,8 @@
 """ Addition Class """
-from calculation import Calculation
+from calc.operations.calculation import Calculation
 
 class Addition(Calculation):
-
-    def getResult(self):
+    """ Addition function """
+    def get_result(self):
+        """ Get result """
         return self.value_a + self.value_b
