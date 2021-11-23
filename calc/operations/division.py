@@ -6,5 +6,8 @@ class Division(Calculation):
     """ Division function """
 
     def get_result(self):
-        """ Get result """
-        return self.value_a / self.value_b
+        """ Get result from division of values """
+        result = 1.0
+        for value in self.values:
+            result = result / value
+        return result

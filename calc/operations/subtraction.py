@@ -6,5 +6,8 @@ class Subtraction(Calculation):
     """ Subtraction function """
 
     def get_result(self):
-        """ Get result """
-        return self.value_a - self.value_b
+        """ Get difference of values from tuple """
+        difference = 0.0
+        for value in self.values:
+            difference = difference - value
+        return difference

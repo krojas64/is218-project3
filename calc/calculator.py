@@ -28,10 +28,6 @@ class Calculator:
         return True
 
     result = 6
-    def add_number(self, value_a):
-        """ Add value_a to the result """
-        self.result = self.result + value_a
-        return self.result
 
     @staticmethod
     def add_numbers(value_a, value_b):
@@ -40,22 +36,12 @@ class Calculator:
         Calculator.history.append(addition)
         return addition.get_result
 
-    def subtract_number(self, value_b):
-        """ Subtract value_b from the result """
-        self.result = self.result - value_b
-        return self.result
-
     @staticmethod
     def subtract_numbers(value_a, value_b):
         """ Subtract numbers and get result """
         subtraction = Subtraction(value_a, value_b)
         Calculator.history.append(subtraction)
         return subtraction.get_result
-
-    def multiply_number(self, value_c):
-        """ Multiply value_c with the result """
-        self.result = self.result * value_c
-        return self.result
 
     @staticmethod
     def multiply_numbers(value_a, value_b):
