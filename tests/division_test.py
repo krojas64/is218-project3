@@ -4,6 +4,6 @@ from calc.operations.division import Division
 
 def test_division():
     """ Testing calculation of division """
-    division = Division(15,3)
-    result = division.get_result()
-    assert result == 5
+    numbers = (4.0, 2.0)
+    division = Division(numbers)
+    assert division.get_result() == 0.125

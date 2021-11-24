@@ -30,36 +30,29 @@ class Calculator:
     result = 6
 
     @staticmethod
-    def add_numbers(value_a, value_b):
+    def add_numbers(values):
         """ Add numbers and get result """
-        addition = Addition(value_a, value_b)
+        addition = Addition(values)
         Calculator.history.append(addition)
         return addition.get_result
 
     @staticmethod
-    def subtract_numbers(value_a, value_b):
+    def subtract_numbers(values):
         """ Subtract numbers and get result """
-        subtraction = Subtraction(value_a, value_b)
+        subtraction = Subtraction(values)
         Calculator.history.append(subtraction)
         return subtraction.get_result
 
     @staticmethod
-    def multiply_numbers(value_a, value_b):
+    def multiply_numbers(values):
         """ Multiply numbers and get result """
-        multiplication = Multiplication(value_a, value_b)
+        multiplication = Multiplication(values)
         Calculator.history.append(multiplication)
         return multiplication.get_result
 
-    def divide_number(self, value_d):
-        """ Divide the result by value_d """
-        if value_d == 0:
-            raise ZeroDivisionError("Cannot divide by zero")
-        self.result = self.result / value_d
-        return self.result
-
     @staticmethod
-    def divide_numbers(value_a, value_b):
+    def divide_numbers(values):
         """ Divide numbers and get result """
-        division = Division(value_a, value_b)
+        division = Division(values)
         Calculator.history.append(division)
         return division.get_result

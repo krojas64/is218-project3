@@ -6,7 +6,7 @@ class Addition(Calculation):
     """ Addition function """
     def get_result(self):
         """ Sum values from tuple """
-        sum = 0.0
+        summation = 0.0
         for value in self.values:
-            sum = sum + value
-        return sum
+            summation = summation + value
+        return summation

@@ -4,6 +4,6 @@ from calc.operations.multiplication import Multiplication
 
 def test_multiplication():
     """ Testing calculation of multiplication """
-    multiplication = Multiplication(4,3)
-    result = multiplication.get_result()
-    assert result == 12
+    numbers = (5.0, 3.0)
+    multiply = Multiplication(numbers)
+    assert multiply.get_result() == 15.0
