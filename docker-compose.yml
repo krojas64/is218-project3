@@ -1,10 +1,19 @@
 version: "3.2"
 services:
-  python:
+  flask:
     build: .
-    ports:
-      - "8080:80"
+    restart: always
+    environment:
+      - APP_NAME=flask
+    expose:
+      - 8080
     stdin_open: true # docker run -i
     tty: true        # docker run -t
     volumes:
-      - ./public_html/:/usr/local/apache2/htdocs/
+        - ./public_html/:/usr/local/apache2/htdocs/
+  nginx:
+    build: ./nginx
+    container_name: nginx
+    restart: always
+    ports:
+      - "80:80"
