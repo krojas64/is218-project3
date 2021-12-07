@@ -9,7 +9,8 @@ def index():
     return render_template("index.html")
 
 
-@app.route('/subsect')
+@app.route('/subsect', methods=['GET', 'POST'])
 def subsection():
-    flash("Logged in!")
+    if request.method == 'POST':
+        flash("Logged in!")
     return render_template('subsect.html')
