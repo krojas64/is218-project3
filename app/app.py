@@ -1,8 +1,17 @@
-from flask import Flask, request
-from flask import render_template
-from calc.calculator import Calculator
-app = Flask(__name__)
+from flask import Flask, request, render_template, flash
 
-@app.route("/")
+# from calc.calculator import Calculator
+
+app = Flask(__name__)
+app.config['SECRET_KEY'] = '12345'
+
+@app.route('/')
 def index():
-    return render_template('index.html')
+    flash("This is a test message")
+    return render_template("index.html")
+
+
+@app.route('/subsect')
+def subsection():
+    flash("Another flash message!")
+    return render_template("subsect.html")
