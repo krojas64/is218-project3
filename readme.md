@@ -1,6 +1,4 @@
-# Calculator Project Setup
-[![Build Status](https://app.travis-ci.com/krojas64/calc2.svg?branch=statictest)](https://app.travis-ci.com/krojas64/calc2)
-
+# Nginx Flash Message
 To run tests, Lint, and Coverage report use this command:
 
 pytest  --pylint --cov
