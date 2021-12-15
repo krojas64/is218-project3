@@ -1,6 +1,5 @@
 """ This is the Calculator function """
-#Add calculator.py to new folder called calculator
-#Maybe put all tests under calculator test (?)
+
 from calc.operations.addition import Addition
 from calc.operations.subtraction import Subtraction
 from calc.operations.multiplication import Multiplication
@@ -42,6 +41,19 @@ class Calculator:
     def get_last_result_value():
         """ Gets the last result in the history """
         return Calculator.get_last_calculation_result_value()
+
+    @staticmethod
+    def read_history_from_csv():
+        """ Read csv history and put in history """
+
+    @staticmethod
+    def get_history_from_csv():
+        """ Get csv history """
+        return Calculator.read_history_from_csv()
+
+    @staticmethod
+    def write_history_to_csv():
+        """ Write from history to csv history """
 
     result = 6
 
