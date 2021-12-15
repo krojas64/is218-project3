@@ -1,12 +1,37 @@
 {% extends "base.html" %}
 {% block main %}
-    <h2>Login</h2>
-    <div id="message">Enter a username/password to login (Enter any combination):</div>
+    <h2>Calculator</h2>
+    {% if error %}
+        <div class="alert alert-danger error" role="alert">
+             {{ error }}
+        </div>
+    {% endif %}
+
+    <div id="message">Enter two numbers for calculation</div>
     <form action="/subsect" method="POST">
-        <label for="user">Username:</label>
-        <input type="text" id="user" name="user"><br>
-        <label for="pass">Password:</label>
-        <input type="text" id="pass" name="pass"><br>
+        <label for="val1">Value 1:</label>
+        <input type="text" id="val1" name="val1"><br>
+        <label for="val2">Value 2:</label>
+        <input type="text" id="val2" name="val2"><br>
+        <fieldset>
+        <legend>Operation</legend>
+          <div>
+            <input type="radio" name="operation" id="add" value="add" checked>
+            <label for="add">Addition</label>
+          </div>
+          <div>
+            <input type="radio" name="operation" id="subtract" value="subtract">
+            <label for="subtract">Subtraction</label>
+          </div>
+          <div>
+            <input type="radio" name="operation" id="multiply" value="multiply">
+            <label for="multiply">Multiplication</label>
+          </div>
+          <div>
+            <input type="radio" name="operation" id="divide" value="divide">
+            <label for="divide">Division</label>
+          </div>
+        </fieldset>
         <input type="submit" value="Submit">
     </form>
 {% endblock %}

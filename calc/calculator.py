@@ -27,32 +27,48 @@ class Calculator:
         Calculator.history.remove(value_a)
         return True
 
+    @staticmethod
+    def get_last_calculation_object():
+        """ Get the last calculation """
+        return Calculator.history[-1]
+
+    @staticmethod
+    def get_last_calculation_result_value():
+        """ Get the last result value """
+        calculation = Calculator.get_last_calculation_object()
+        return calculation.get_result()
+
+    @staticmethod
+    def get_last_result_value():
+        """ Gets the last result in the history """
+        return Calculator.get_last_calculation_result_value()
+
     result = 6
 
     @staticmethod
-    def add_numbers(values):
+    def add(values):
         """ Add numbers and get result """
         addition = Addition(values)
         Calculator.history.append(addition)
-        return addition.get_result
+        return addition.get_result()
 
     @staticmethod
-    def subtract_numbers(values):
+    def subtract(values):
         """ Subtract numbers and get result """
         subtraction = Subtraction(values)
         Calculator.history.append(subtraction)
-        return subtraction.get_result
+        return subtraction.get_result()
 
     @staticmethod
-    def multiply_numbers(values):
+    def multiply(values):
         """ Multiply numbers and get result """
         multiplication = Multiplication(values)
         Calculator.history.append(multiplication)
-        return multiplication.get_result
+        return multiplication.get_result()
 
     @staticmethod
-    def divide_numbers(values):
+    def divide(values):
         """ Divide numbers and get result """
         division = Division(values)
         Calculator.history.append(division)
-        return division.get_result
+        return division.get_result()
