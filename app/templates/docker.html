@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block main %}
+<h1>Docker Hub and Docker Desktop</h1>
+	<a href="index.html">Return to Main Page</a>
+	<div>Docker is a platform used to build and run images from <br>
+		applications. Docker Desktop is a program that is used <br>
+		to run those images as containers. Multiple containers with <br>
+		databases can also be used to persist data on the containers. <br>
+		Docker Hub is used to host the images in repositories, which <br>
+		can be used with Azure to run the image as a container online.<br>
+	</div>
+	<br>
+	<div>
+		In order run an app through Docker, a <b>Dockerfile</b> (with no <br>
+		file extension) needs to be made. This file creates the image <br>
+		that works with Docker. The following code is used in our Dockerfile: <br>
+		<pre>
+		<code>
+		FROM httpd:2.4
+		COPY ./public_html/ /usr/local/apache2/htdocs/
+		</code>
+		</pre>
+
+		A <b>docker-compose.yml</b> file also needs to <br>
+		be created, which determines the version, type of image to use, <br>
+		the port to run the image on, SQL user and passwords for MYSQL, <br>
+		and much more. The following is in our compose file: <br>
+		<pre>
+                <code>
+                version: "3.2"
+		services:
+  		  apache:
+    		    build: .
+    		    ports:
+      		      - "8080:80"
+    		    volumes:
+      		      - ./public_html/:/usr/local/apache2/htdocs/
+                </code>
+		</pre>
+	</div>
+	<br>
+	<div>
+	When an application is ready to be built on Docker, you use the line <br>
+	<code>docker build -t tagname .</code> <br>
+	The -t gives the specific build a tag, which you use in place of "tagname". <br>
+	The dot "." at the end specifies which directory to use in the building process. <br>
+	Since we use a dot, it picks the current directory you are in. <br>
+	After this, we can run the image on Docker Desktop using the line: <br>
+	<code>docker run -dp 8080:80 tagname</code><br>
+	The d and p flag run a new container for the image and map it to the port specified, <br>
+	which in this case is 8080:80. The "tagname" specifies which build to run. Sure enough <br>
+	Docker Desktop will then have a new container running the app you have just created.
+	</div>
+	<br>
+{% endblock %}
